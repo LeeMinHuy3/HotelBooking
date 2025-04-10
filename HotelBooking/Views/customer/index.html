@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxStay</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/customer/styles.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lora:wght@400;700&display=swap"
+        rel="stylesheet">
+
+</head>
+
+<body>
+    <header class="header sticky-top">
+        <div class="container">
+            <div class="row align-items-center py-3">
+                <!-- Logo -->
+                <div class="col-md-2">
+                    <a href="#" class="navbar-brand">
+                        <img src="/image/LuxStay (500 x 200 px).png" alt="Bean Hotel" class="logo" width="px">
+
+                    </a>
+                </div>
+
+                <!-- Menu -->
+                <div class="col-md-8 d-flex justify-content-center">
+                    <nav class="navbar navbar-expand-lg navbar-light ">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <ul class="navbar-nav">
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/customer/index.html">Trang chủ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/about/index.html">Giới thiệu</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/service/index.html">Dịch vụ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Phòng</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/contact/index.html">Liên hệ</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="#">Đăng nhập</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+                <!-- Đặt phòng (CTA) -->
+                <div class="col-md-2 text-end">
+                    <a href="#" class="btn btn-warning btn-book">Đặt phòng</a>
+                </div>
+            </div>
+
+            <!-- Form tìm kiếm phòng -->
+            <div class="row justify-content-center">
+                <div class="col-md-8">
+                    <form class="search-form d-flex">
+                        <input type="text" class="form-control me-2" placeholder="Tìm kiếm phòng..."
+                            aria-label="Tìm kiếm phòng">
+                        <button class="btn btn-warning" type="submit">Tìm kiếm</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+                <img src="/image/banner.png" class="d-block w-100" alt="First slide">
+            </div>
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+                <img src="/image/banner.png" class="d-block w-100" alt="Second slide">
+            </div>
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+                <img src="/image/banner.png" class="d-block w-100" alt="Third slide">
+            </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+
+
+
+
+    <section class="intro">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/79BEz0QI__E?si=mi9RvQ4B-XGv9kzI"
+                        title="YouTube video player" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+                <div class="col-md-6">
+                    <h2>LuxStay FPTPolyTechnic</h2>
+
+                    <p>Khách sạn LuxStay FPT Polytechnic là điểm dừng chân lý tưởng cho những ai tìm kiếm sự kết hợp
+                        hoàn hảo giữa tiện nghi hiện đại và không gian thư giãn. Với vị trí thuận lợi, thiết kế sang
+                        trọng và đội ngũ nhân viên tận tâm, LuxStay mang đến trải nghiệm nghỉ dưỡng tuyệt vời. Các phòng
+                        nghỉ được trang bị đầy đủ tiện nghi, đáp ứng nhu cầu của cả khách du lịch lẫn doanh nhân. Hãy
+                        đến LuxStay FPT Polytechnic để tận hưởng không gian nghỉ ngơi lý tưởng, kết hợp công việc và thư
+                        giãn.</p>
+                  
+            </div>
+        </div>
+    </section>
+    <section class="rooms">
+        <div class="container">
+            <h2 class="text-center my-5">Phòng</h2>
+            <div class="row">
+                <!-- Phòng 1 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/1.jpg" class="card-img-top" alt="Phòng Giả Hình">
+                        <div class="card-body">
+                            <h5 class="card-title">Phòng Giả Hình</h5>
+                            <p class="card-text">40m² | 3 người</p>
+                            <p class="card-text text-danger">1,000,000₫/Phòng</p>
+                            <button class="btn btn-warning w-100">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phòng 2 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/2.jpg" class="card-img-top" alt="Phòng Đơn Tiêu Chuẩn">
+                        <div class="card-body">
+                            <h5 class="card-title">Phòng Đơn Tiêu Chuẩn</h5>
+                            <p class="card-text">25m² | 2 người</p>
+                            <p class="card-text text-danger">200,000₫/Phòng</p>
+                            <button class="btn btn-warning w-100">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phòng 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/5.jpg" class="card-img-top" alt="Phòng Đôi Nói Liền">
+                        <div class="card-body">
+                            <h5 class="card-title">Phòng Đôi Nói Liền</h5>
+                            <p class="card-text">35m² | 2 người</p>
+                            <p class="card-text text-danger">700,000₫/Phòng</p>
+                            <button class="btn btn-warning w-100">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phòng 4 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/5.jpg" class="card-img-top" alt="Phòng Đôi 2 Giường Đôi">
+                        <div class="card-body">
+                            <h5 class="card-title">Phòng Đôi 2 Giường Đôi</h5>
+                            <p class="card-text">30m² | 4 người</p>
+                            <p class="card-text text-danger">400,000₫/Phòng</p>
+                            <button class="btn btn-warning w-100">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phòng 5 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/5.jpg" class="card-img-top" alt="Phòng Đôi View Sân Vườn">
+                        <div class="card-body">
+                            <h5 class="card-title">Phòng Đôi View Sân Vườn</h5>
+                            <p class="card-text">30m² | 2 người</p>
+                            <p class="card-text text-danger">800,000₫/Phòng</p>
+                            <button class="btn btn-warning w-100">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Phòng 6 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/5.jpg" class="card-img-top" alt="Phòng Đôi View Thành Phố">
+                        <div class="card-body">
+                            <h5 class="card-title">Phòng Đôi View Thành Phố</h5>
+                            <p class="card-text">32m² | 2 người</p>
+                            <p class="card-text text-danger">900,000₫/Phòng</p>
+                            <button class="btn btn-warning w-100">Đặt phòng</button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="facilities">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Hình ảnh Tiện Nghi -->
+                <div class="col-md-5">
+                    <img src="/image/5.jpg" class="img-fluid rounded" alt="Tiện Nghi Sang Trọng">
+                </div>
+                <!-- Nội dung Tiện Nghi -->
+                <div class="col-md-7">
+                    <h2 class="section-title">TIỆN NGHI SANG TRỌNG</h2>
+                    <p class="lead">Chúng tôi mang lại không gian gian thoáng đãng và tiểu cảnh được chăm chút cho khách
+                        hàng.</p>
+                    <p>Khách sạn LuxStay FPT Polytechnic không chỉ là nơi dừng chân lý tưởng mà còn là biểu tượng của sự
+                        sang trọng và đẳng cấp. Mỗi chi tiết trong thiết kế của khách sạn đều được chăm chút tỉ mỉ, từ
+                        những món đồ nội thất cao cấp đến không gian rộng rãi, thoáng đãng, mang đến cảm giác thư giãn
+                        tối đa cho khách hàng. Các phòng nghỉ được trang bị đầy đủ tiện nghi hiện đại, với giường ngủ êm
+                        ái, hệ thống ánh sáng tinh tế và view đẹp mắt, giúp bạn tận hưởng những phút giây thư giãn tuyệt
+                        vời.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news">
+        <div class="container">
+            <h2 class="section-title text-center mb-5">Góp ý khách hàng</h2>
+            <div class="row">
+                <!-- Bài viết 1 -->
+                <div class="col-md-4 text-center">
+                    <div class="card">
+                        <img src="/image/danh-gia-3.png" class="card-img-top" alt="Hãy trở thành nhà cung cấp dịch vụ">
+                        <div class="card-body">
+                    
+                            <p class="card-text">"Chúng tôi đã có một kỳ nghỉ tuyệt vời tại khách sạn này! Phòng ốc rất sạch sẽ, thoải mái và đầy đủ tiện nghi. Nhân viên cực kỳ thân thiện và luôn sẵn sàng hỗ trợ khi cần thiết. Bữa sáng rất ngon và đa dạng món ăn. Khách sạn có vị trí lý tưởng, gần các điểm tham quan nổi tiếng, nên rất thuận tiện cho việc di chuyển. Chắc chắn sẽ quay lại vào lần sau!"</p>
+                         
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 2 -->
+                <div class="col-md-4 ">
+                    <div class="card">
+                        <img src="/image/danh-gia.png" class="card-img-top" alt="Hỗ trợ tập huấn và triển khai NukeViet">
+                        <div class="card-body">
+                          
+                            <p class="card-text text-center" >"Tôi rất hài lòng về dịch vụ tại khách sạn này. Phòng ngủ rộng rãi, trang trí đẹp và thoáng mát. Tuy nhiên, tôi cảm thấy giá phòng hơi cao so với một số khách sạn khác trong khu vực. Nhưng bù lại, dịch vụ chăm sóc khách hàng rất tốt, và tiện ích tại khách sạn, như hồ bơi và spa, cũng rất tuyệt vời. Rất đáng để thử nếu bạn muốn một kỳ nghỉ thư giãn."</p>
+                            
+                        </div>
+                    </div>
+                </div>
+                <!-- Bài viết 3 -->
+                <div class="col-md-4">
+                    <div class="card">
+                        <img src="/image/danh-gia-2.png" class="card-img-top"
+                            alt="NukeViet được Bộ GĐ&DT đưa vào hướng dẫn thực hiện">
+                        <div class="card-body">
+                            <p class="card-text">"Khách sạn này thật sự vượt ngoài mong đợi của tôi! Tôi đã có một kỳ nghỉ dài ở đây và mọi thứ đều tuyệt vời. Phòng được dọn dẹp sạch sẽ mỗi ngày, và nhân viên luôn niềm nở, lịch sự. Tôi đặc biệt ấn tượng với chất lượng dịch vụ phòng – rất nhanh chóng và chuyên nghiệp. Đặc biệt, bữa sáng buffet rất ngon và phong phú, khiến tôi bắt đầu một ngày mới đầy năng lượng. Đây sẽ là nơi tôi lựa chọn mỗi khi ghé thăm thành phố này."</p>
+                         
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer bg-dark text-white">
+        <div class="container py-5">
+            <div class="row">
+                <!-- Thông tin khách sạn -->
+                <div class="col-md-4">
+                    <h5>Thông Tin</h5>
+                    <img src="/image/LuxStay (500 x 200 px).png" alt="" width="60%">
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt"></i> 137 Nguyễn Thị Thập, Liên Chiểu , Đà Nẵng</li>
+                        <li><i class="fas fa-phone-alt"></i> 0375293317</li>
+                        <li><i class="fas fa-envelope"></i> luxstay@fptpolytechnic.com</li>
+                        <li><i class="fas fa-globe"></i> Website: luxstayfptpolytechnic.vn</li>
+                    </ul>
+                    <div>
+                        <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <!-- Chuyên mục chính -->
+                <div class="col-md-4">
+                    <h5>Các chuyên mục chính</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Trang chủ</a></li>
+                        <li><a href="#" class="text-white">Giới thiệu</a></li>
+                        <li><a href="#" class="text-white">Tin Tức</a></li>
+                        <li><a href="#" class="text-white">Sản phẩm</a></li>
+                        <li><a href="#" class="text-white">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <!-- Bản đồ -->
+                <div class="col-md-4">
+                    <h5>Vị trí</h5>
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6399.654843047304!2d108.16738507417978!3d16.075730739265687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218e6e72e66f5%3A0x81aceed31aec3816!2zMTM3IMSQxrDhu51uZyBOZ3V54buFbiBUaOG7iyBUaOG6rXAsIFRoYW5oIEtow6ogVMOieSwgTGnDqm4gQ2hp4buDdSwgxJDDoCBO4bq1bmcsIFZpZXRuYW0!5e1!3m2!1sen!2sus!4v1742287936545!5m2!1sen!2sus"
+                        height="200" style="border:0;" allowfullscreen="" loading="lazy"
+                        referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+            <hr class="my-4">
+            <p class="text-center">&copy; 2025 LuxStayFPTPolytechnic.</p>
+        </div>
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
