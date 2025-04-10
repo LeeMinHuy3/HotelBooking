@@ -7,6 +7,29 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Include="wwwroot\css\about styles.css" />
+    <None Include="wwwroot\css\contact styles.css" />
+    <None Include="wwwroot\css\customer styles.css" />
+    <None Include="wwwroot\css\service styles.css" />
+    <None Include="wwwroot\image\1.jpg" />
+    <None Include="wwwroot\image\2.jpg" />
+    <None Include="wwwroot\image\5.jpg" />
+    <None Include="wwwroot\image\banner.png" />
+    <None Include="wwwroot\image\cac-dich-vu-spa.jpg" />
+    <None Include="wwwroot\image\concierge-3-2.jpg" />
+    <None Include="wwwroot\image\danh-gia-2.png" />
+    <None Include="wwwroot\image\danh-gia-3.png" />
+    <None Include="wwwroot\image\danh-gia.png" />
+    <None Include="wwwroot\image\danh-sach-ho-boi.jpg" />
+    <None Include="wwwroot\image\dịch vụ bơi.jpg" />
+    <None Include="wwwroot\image\gym.jpg" />
+    <None Include="wwwroot\image\LuxStay %28500 x 200 px%29.png" />
+    <None Include="wwwroot\image\pasted image 0.png" />
+    <None Include="wwwroot\image\Thiet-ke-phong-hop-hien-dai-1-2.jpg" />
+    <None Include="wwwroot\image\wifi-158401_1280.webp" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="8.0.15" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="9.0.4" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.4" />
