@@ -1,0 +1,12 @@
+﻿@{
+    ViewData["Title"] = "Thống kê trong ngày";
+}
+
+<h2>Thống kê hôm nay (@DateTime.Now.ToString("dd/MM/yyyy"))</h2>
+
+<ul>
+    <li>Số lượt đặt phòng: <strong>@ViewBag.SoLuotDatPhong</strong></li>
+    <li>Số dịch vụ sử dụng: <strong>@ViewBag.SoDichVu</strong></li>
+    <li>Số lần áp dụng khuyến mãi: <strong>@ViewBag.SoLanKhuyenMai</strong></li>
+    <li>Tổng doanh thu: <strong>@ViewBag.DoanhThu.ToString("N0") VNĐ</strong></li>
+</ul>

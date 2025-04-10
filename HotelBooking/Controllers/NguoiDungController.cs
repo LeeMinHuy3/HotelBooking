@@ -10,9 +10,9 @@ namespace HotelBooking.Controllers
     [Route("api/[controller]")]
     public class NguoiDungController : ControllerBase
     {
-        private readonly AppDBContext _context;
+        private readonly AppDbContext _context;
 
-        public NguoiDungController(AppDBContext context)
+        public NguoiDungController(AppDbContext context)
         {
             _context = context;
         }
