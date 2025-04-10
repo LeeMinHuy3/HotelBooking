@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lora:wght@400;700&display=swap"
           rel="stylesheet">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="header sticky-top">
         <div class="container">
             <div class="row align-items-center py-3">
@@ -39,7 +39,7 @@
                                     <a class="nav-link" asp-controller="About" asp-action="Index">Giới thiệu</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" asp-controller="" asp-action="Index">Dịch vụ</a>
+                                    <a class="nav-link" asp-controller="DichVu" asp-action="Index">Dịch vụ</a>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Phòng</a>
@@ -74,9 +74,11 @@
         </div>
     </header>
     
-    @RenderBody()
+    <main class="flex-fill" style="margin-bottom: 650px;">
+        @RenderBody()
+    </main>
 
-    <footer class="footer bg-dark text-white">
+    <footer class="footer bg-dark text-white mt">
         <div class="container py-5">
             <div class="row">
                 <!-- Thông tin khách sạn -->

@@ -1,0 +1,17 @@
+﻿@model HotelBooking.Models.DichVu
+
+@{
+    ViewData["Title"] = "Xóa dịch vụ";
+}
+
+<h2>Bạn có chắc muốn xóa?</h2>
+
+<div>
+    <h4>@Model.KieuDichVu - @Model.Gia.ToString("N0") VNĐ</h4>
+</div>
+
+<form asp-action="DeleteConfirmed">
+    <input type="hidden" asp-for="MaDV" />
+    <button type="submit" class="btn btn-danger">Xóa</button>
+    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+</form>
