@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="~/css/customer styles.css">
     <link rel="stylesheet" href="~/css/about styles.css">
     <link rel="stylesheet" href="~/css/contact styles.css">
+    <link rel="stylesheet" href="~/css/service styles.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Lora:wght@400;700&display=swap"
           rel="stylesheet">
@@ -74,16 +75,18 @@
         </div>
     </header>
     
-    <main class="flex-fill" style="margin-bottom: 650px;">
-        @RenderBody()
+    <main class="flex-fill" style="margin-bottom: auto;">
+        <section>
+            @RenderBody()
+        </section>
     </main>
 
-    <footer class="footer bg-dark text-white mt">
+    <footer class="bg-dark text-white">
         <div class="container py-5">
             <div class="row">
                 <!-- Thông tin khách sạn -->
                 <div class="col-md-4">
-                    <h5>Thông Tin</h5>
+                    <h5 class="text-warning">Thông Tin</h5>
                     <img src="~/image/LuxStay (500 x 200 px).png" alt="" width="60%">
                     <ul class="list-unstyled">
                         <li><i class="fas fa-map-marker-alt"></i> 137 Nguyễn Thị Thập, Liên Chiểu , Đà Nẵng</li>
@@ -99,7 +102,7 @@
                 </div>
                 <!-- Chuyên mục chính -->
                 <div class="col-md-4">
-                    <h5>Các chuyên mục chính</h5>
+                    <h5 class="text-warning">Các chuyên mục chính</h5>
                     <ul class="list-unstyled">
                         <li><a href="#" class="text-white">Trang chủ</a></li>
                         <li><a href="#" class="text-white">Giới thiệu</a></li>
@@ -110,7 +113,7 @@
                 </div>
                 <!-- Bản đồ -->
                 <div class="col-md-4">
-                    <h5>Vị trí</h5>
+                    <h5 class="text-warning">Vị trí</h5>
                     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6399.654843047304!2d108.16738507417978!3d16.075730739265687!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314218e6e72e66f5%3A0x81aceed31aec3816!2zMTM3IMSQxrDhu51uZyBOZ3V54buFbiBUaOG7iyBUaOG6rXAsIFRoYW5oIEtow6ogVMOieSwgTGnDqm4gQ2hp4buDdSwgxJDDoCBO4bq1bmcsIFZpZXRuYW0!5e1!3m2!1sen!2sus!4v1742287936545!5m2!1sen!2sus"
                             height="200" style="border:0;" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>

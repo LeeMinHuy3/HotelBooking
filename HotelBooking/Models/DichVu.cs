@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HotelBooking.Models
 {
@@ -12,6 +13,6 @@ namespace HotelBooking.Models
         public decimal Gia { get; set; }
 
         // Quan hệ 1-n với DatDichVu
-        public List<DatDichVu> DatDichVus { get; set; }
+        public ICollection<DatDichVu> DatDichVus { get; set; }
     }
 }

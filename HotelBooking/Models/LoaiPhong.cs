@@ -6,9 +6,8 @@ namespace HotelBooking.Models
     {
         [Key]
         public int MaLP { get; set; }
+        public string LoaiPhongName { get; set; }
 
-        public string TenLoaiPhong { get; set; }
-
-        public List<Phong> Phongs { get; set; }
+        public ICollection<Phong> Phongs { get; set; }
     }
 }

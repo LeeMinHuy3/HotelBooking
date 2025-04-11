@@ -8,14 +8,12 @@ namespace HotelBooking.Models
         [Key]
         public int MaP { get; set; }
 
-        [ForeignKey("LoaiPhong")]
         public int MaLP { get; set; }
         public LoaiPhong LoaiPhong { get; set; }
 
         public decimal GiaPhong { get; set; }
-
         public string TrangThai { get; set; }
 
-        public List<DatPhong> DatPhongs { get; set; }
+        public ICollection<DatPhong> DatPhongs { get; set; }
     }
 }

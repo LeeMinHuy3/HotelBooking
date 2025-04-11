@@ -8,12 +8,10 @@ namespace HotelBooking.Models
         [Key]
         public int MaDG { get; set; }
 
-        [ForeignKey("NguoiDung")]
         public int MaND { get; set; }
         public NguoiDung NguoiDung { get; set; }
 
         public string BinhLuan { get; set; }
-
         public DateTime NgayDanhGia { get; set; }
     }
 }

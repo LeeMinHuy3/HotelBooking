@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace HotelBooking.Migrations
 {
     /// <inheritdoc />
-    public partial class _104 : Migration
+    public partial class hoteldb : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -32,7 +32,7 @@ namespace HotelBooking.Migrations
                     MaKM = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     TenKM = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PhanTramKM = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
+                    PhanTramKM = table.Column<float>(type: "real", nullable: false),
                     NgayBatDau = table.Column<DateTime>(type: "datetime2", nullable: false),
                     NgayKetThuc = table.Column<DateTime>(type: "datetime2", nullable: false),
                     TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false)
@@ -48,7 +48,7 @@ namespace HotelBooking.Migrations
                 {
                     MaLP = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    TenLoaiPhong = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    LoaiPhongName = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -73,33 +73,13 @@ namespace HotelBooking.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "DatDichVus",
-                columns: table => new
-                {
-                    MaDDV = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    MaDV = table.Column<int>(type: "int", nullable: false),
-                    SoLuong = table.Column<int>(type: "int", nullable: false),
-                    TongTien = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_DatDichVus", x => x.MaDDV);
-                    table.ForeignKey(
-                        name: "FK_DatDichVus_DichVus_MaDV",
-                        column: x => x.MaDV,
-                        principalTable: "DichVus",
-                        principalColumn: "MaDV",
-                        onDelete: ReferentialAction.Cascade);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Phongs",
                 columns: table => new
                 {
                     MaP = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaLP = table.Column<int>(type: "int", nullable: false),
+                    LoaiPhongMaLP = table.Column<int>(type: "int", nullable: false),
                     GiaPhong = table.Column<decimal>(type: "decimal(18,2)", nullable: false),
                     TrangThai = table.Column<string>(type: "nvarchar(max)", nullable: false)
                 },
@@ -107,8 +87,8 @@ namespace HotelBooking.Migrations
                 {
                     table.PrimaryKey("PK_Phongs", x => x.MaP);
                     table.ForeignKey(
-                        name: "FK_Phongs_LoaiPhongs_MaLP",
-                        column: x => x.MaLP,
+                        name: "FK_Phongs_LoaiPhongs_LoaiPhongMaLP",
+                        column: x => x.LoaiPhongMaLP,
                         principalTable: "LoaiPhongs",
                         principalColumn: "MaLP",
                         onDelete: ReferentialAction.Cascade);
@@ -121,6 +101,7 @@ namespace HotelBooking.Migrations
                     MaDG = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaND = table.Column<int>(type: "int", nullable: false),
+                    NguoiDungMaND = table.Column<int>(type: "int", nullable: false),
                     BinhLuan = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     NgayDanhGia = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -128,8 +109,8 @@ namespace HotelBooking.Migrations
                 {
                     table.PrimaryKey("PK_DanhGias", x => x.MaDG);
                     table.ForeignKey(
-                        name: "FK_DanhGias_NguoiDungs_MaND",
-                        column: x => x.MaND,
+                        name: "FK_DanhGias_NguoiDungs_NguoiDungMaND",
+                        column: x => x.NguoiDungMaND,
                         principalTable: "NguoiDungs",
                         principalColumn: "MaND",
                         onDelete: ReferentialAction.Cascade);
@@ -142,8 +123,11 @@ namespace HotelBooking.Migrations
                     MaDP = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     MaND = table.Column<int>(type: "int", nullable: false),
+                    NguoiDungMaND = table.Column<int>(type: "int", nullable: false),
                     MaP = table.Column<int>(type: "int", nullable: false),
+                    PhongMaP = table.Column<int>(type: "int", nullable: false),
                     MaKM = table.Column<int>(type: "int", nullable: true),
+                    KhuyenMaiMaKM = table.Column<int>(type: "int", nullable: false),
                     ThoiGianDat = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThoiGianCheckIn = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ThoiGianCheckOut = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -154,21 +138,50 @@ namespace HotelBooking.Migrations
                 {
                     table.PrimaryKey("PK_DatPhongs", x => x.MaDP);
                     table.ForeignKey(
-                        name: "FK_DatPhongs_KhuyenMais_MaKM",
-                        column: x => x.MaKM,
+                        name: "FK_DatPhongs_KhuyenMais_KhuyenMaiMaKM",
+                        column: x => x.KhuyenMaiMaKM,
                         principalTable: "KhuyenMais",
-                        principalColumn: "MaKM");
+                        principalColumn: "MaKM",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DatPhongs_NguoiDungs_MaND",
-                        column: x => x.MaND,
+                        name: "FK_DatPhongs_NguoiDungs_NguoiDungMaND",
+                        column: x => x.NguoiDungMaND,
                         principalTable: "NguoiDungs",
                         principalColumn: "MaND",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_DatPhongs_Phongs_MaP",
-                        column: x => x.MaP,
+                        name: "FK_DatPhongs_Phongs_PhongMaP",
+                        column: x => x.PhongMaP,
                         principalTable: "Phongs",
                         principalColumn: "MaP",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "DatDichVus",
+                columns: table => new
+                {
+                    MaDDV = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    MaDV = table.Column<int>(type: "int", nullable: false),
+                    MaDP = table.Column<int>(type: "int", nullable: false),
+                    SoLuong = table.Column<int>(type: "int", nullable: false),
+                    TongTien = table.Column<decimal>(type: "decimal(18,2)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_DatDichVus", x => x.MaDDV);
+                    table.ForeignKey(
+                        name: "FK_DatDichVus_DatPhongs_MaDP",
+                        column: x => x.MaDP,
+                        principalTable: "DatPhongs",
+                        principalColumn: "MaDP",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_DatDichVus_DichVus_MaDV",
+                        column: x => x.MaDV,
+                        principalTable: "DichVus",
+                        principalColumn: "MaDV",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -195,9 +208,14 @@ namespace HotelBooking.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_DanhGias_MaND",
+                name: "IX_DanhGias_NguoiDungMaND",
                 table: "DanhGias",
-                column: "MaND");
+                column: "NguoiDungMaND");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_DatDichVus_MaDP",
+                table: "DatDichVus",
+                column: "MaDP");
 
             migrationBuilder.CreateIndex(
                 name: "IX_DatDichVus_MaDV",
@@ -205,29 +223,30 @@ namespace HotelBooking.Migrations
                 column: "MaDV");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DatPhongs_MaKM",
+                name: "IX_DatPhongs_KhuyenMaiMaKM",
                 table: "DatPhongs",
-                column: "MaKM");
+                column: "KhuyenMaiMaKM");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DatPhongs_MaND",
+                name: "IX_DatPhongs_NguoiDungMaND",
                 table: "DatPhongs",
-                column: "MaND");
+                column: "NguoiDungMaND");
 
             migrationBuilder.CreateIndex(
-                name: "IX_DatPhongs_MaP",
+                name: "IX_DatPhongs_PhongMaP",
                 table: "DatPhongs",
-                column: "MaP");
+                column: "PhongMaP");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Phongs_MaLP",
+                name: "IX_Phongs_LoaiPhongMaLP",
                 table: "Phongs",
-                column: "MaLP");
+                column: "LoaiPhongMaLP");
 
             migrationBuilder.CreateIndex(
                 name: "IX_ThanhToans_MaDP",
                 table: "ThanhToans",
-                column: "MaDP");
+                column: "MaDP",
+                unique: true);
         }
 
         /// <inheritdoc />

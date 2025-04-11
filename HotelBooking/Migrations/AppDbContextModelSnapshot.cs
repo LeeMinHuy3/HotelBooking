@@ -40,9 +40,12 @@ namespace HotelBooking.Migrations
                     b.Property<DateTime>("NgayDanhGia")
                         .HasColumnType("datetime2");
 
+                    b.Property<int>("NguoiDungMaND")
+                        .HasColumnType("int");
+
                     b.HasKey("MaDG");
 
-                    b.HasIndex("MaND");
+                    b.HasIndex("NguoiDungMaND");
 
                     b.ToTable("DanhGias");
                 });
@@ -84,6 +87,9 @@ namespace HotelBooking.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaDP"));
 
+                    b.Property<int>("KhuyenMaiMaKM")
+                        .HasColumnType("int");
+
                     b.Property<int?>("MaKM")
                         .HasColumnType("int");
 
@@ -91,6 +97,12 @@ namespace HotelBooking.Migrations
                         .HasColumnType("int");
 
                     b.Property<int>("MaP")
+                        .HasColumnType("int");
+
+                    b.Property<int>("NguoiDungMaND")
+                        .HasColumnType("int");
+
+                    b.Property<int>("PhongMaP")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("ThoiGianCheckIn")
@@ -111,11 +123,11 @@ namespace HotelBooking.Migrations
 
                     b.HasKey("MaDP");
 
-                    b.HasIndex("MaKM");
+                    b.HasIndex("KhuyenMaiMaKM");
 
-                    b.HasIndex("MaND");
+                    b.HasIndex("NguoiDungMaND");
 
-                    b.HasIndex("MaP");
+                    b.HasIndex("PhongMaP");
 
                     b.ToTable("DatPhongs");
                 });
@@ -154,8 +166,8 @@ namespace HotelBooking.Migrations
                     b.Property<DateTime>("NgayKetThuc")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("PhanTramKM")
-                        .HasColumnType("decimal(18,2)");
+                    b.Property<float>("PhanTramKM")
+                        .HasColumnType("real");
 
                     b.Property<string>("TenKM")
                         .IsRequired()
@@ -178,7 +190,7 @@ namespace HotelBooking.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("MaLP"));
 
-                    b.Property<string>("TenLoaiPhong")
+                    b.Property<string>("LoaiPhongName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -231,6 +243,9 @@ namespace HotelBooking.Migrations
                     b.Property<decimal>("GiaPhong")
                         .HasColumnType("decimal(18,2)");
 
+                    b.Property<int>("LoaiPhongMaLP")
+                        .HasColumnType("int");
+
                     b.Property<int>("MaLP")
                         .HasColumnType("int");
 
@@ -240,7 +255,7 @@ namespace HotelBooking.Migrations
 
                     b.HasKey("MaP");
 
-                    b.HasIndex("MaLP");
+                    b.HasIndex("LoaiPhongMaLP");
 
                     b.ToTable("Phongs");
                 });
@@ -268,7 +283,8 @@ namespace HotelBooking.Migrations
 
                     b.HasKey("MaTT");
 
-                    b.HasIndex("MaDP");
+                    b.HasIndex("MaDP")
+                        .IsUnique();
 
                     b.ToTable("ThanhToans");
                 });
@@ -277,7 +293,7 @@ namespace HotelBooking.Migrations
                 {
                     b.HasOne("HotelBooking.Models.NguoiDung", "NguoiDung")
                         .WithMany("DanhGias")
-                        .HasForeignKey("MaND")
+                        .HasForeignKey("NguoiDungMaND")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -287,7 +303,7 @@ namespace HotelBooking.Migrations
             modelBuilder.Entity("HotelBooking.Models.DatDichVu", b =>
                 {
                     b.HasOne("HotelBooking.Models.DatPhong", "DatPhong")
-                        .WithMany()
+                        .WithMany("DatDichVus")
                         .HasForeignKey("MaDP")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -307,17 +323,19 @@ namespace HotelBooking.Migrations
                 {
                     b.HasOne("HotelBooking.Models.KhuyenMai", "KhuyenMai")
                         .WithMany("DatPhongs")
-                        .HasForeignKey("MaKM");
+                        .HasForeignKey("KhuyenMaiMaKM")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("HotelBooking.Models.NguoiDung", "NguoiDung")
                         .WithMany("DatPhongs")
-                        .HasForeignKey("MaND")
+                        .HasForeignKey("NguoiDungMaND")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("HotelBooking.Models.Phong", "Phong")
                         .WithMany("DatPhongs")
-                        .HasForeignKey("MaP")
+                        .HasForeignKey("PhongMaP")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -332,7 +350,7 @@ namespace HotelBooking.Migrations
                 {
                     b.HasOne("HotelBooking.Models.LoaiPhong", "LoaiPhong")
                         .WithMany("Phongs")
-                        .HasForeignKey("MaLP")
+                        .HasForeignKey("LoaiPhongMaLP")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -342,12 +360,20 @@ namespace HotelBooking.Migrations
             modelBuilder.Entity("HotelBooking.Models.ThanhToan", b =>
                 {
                     b.HasOne("HotelBooking.Models.DatPhong", "DatPhong")
-                        .WithMany()
-                        .HasForeignKey("MaDP")
+                        .WithOne("ThanhToan")
+                        .HasForeignKey("HotelBooking.Models.ThanhToan", "MaDP")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("DatPhong");
+                });
+
+            modelBuilder.Entity("HotelBooking.Models.DatPhong", b =>
+                {
+                    b.Navigation("DatDichVus");
+
+                    b.Navigation("ThanhToan")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("HotelBooking.Models.DichVu", b =>

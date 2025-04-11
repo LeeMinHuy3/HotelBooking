@@ -1,31 +1,34 @@
 ﻿@model IEnumerable<HotelBooking.Models.DichVu>
-
 @{
-    ViewData["Title"] = "Danh sách dịch vụ";
+    ViewData["Title"] = "Danh sách Dịch vụ";
 }
 
-<h2>@ViewData["Title"]</h2>
-<a class="btn btn-success mb-3" asp-action="Create">Thêm mới</a>
+<h1 class="text-center">Danh sách Dịch vụ</h1>
 
-<table class="table table-bordered">
+<p>
+    <a asp-action="Create" class="btn btn-success">Thêm Dịch vụ</a>
+</p>
+
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Mã DV</th>
-            <th>Kiểu dịch vụ</th>
+            <th>Kiểu Dịch vụ</th>
             <th>Giá</th>
-            <th>Hành động</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in Model)
         {
             <tr>
-                <td>@item.MaDV</td>
-                <td>@item.KieuDichVu</td>
-                <td>@item.Gia.ToString("N0") VNĐ</td>
+                <td>@Html.DisplayFor(modelItem => item.MaDV)</td>
+                <td>@Html.DisplayFor(modelItem => item.KieuDichVu)</td>
+                <td>@String.Format("{0:N0}", item.Gia) VND</td>
                 <td>
                     <a asp-action="Edit" asp-route-id="@item.MaDV" class="btn btn-warning btn-sm">Sửa</a>
-                    <a asp-action="Delete" asp-route-id="@item.MaDV" class="btn btn-danger btn-sm">Xóa</a>
+                    <a asp-action="Delete" asp-route-id="@item.MaDV" class="btn btn-danger btn-sm">Xoá</a>
+                    <a asp-action="Details" asp-route-id="@item.MaDV" class="btn btn-info btn-sm">Chi tiết</a>
                 </td>
             </tr>
         }

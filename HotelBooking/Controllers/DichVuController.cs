@@ -16,7 +16,19 @@ namespace HotelBooking.Controllers
         // GET: DichVu
         public async Task<IActionResult> Index()
         {
-            return View(await _context.DichVus.ToListAsync());
+            var dichVus = await _context.DichVus.ToListAsync();
+            return View(dichVus);
+        }
+
+        // GET: DichVu/Details/5
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var dichVu = await _context.DichVus.FirstOrDefaultAsync(m => m.MaDV == id);
+            if (dichVu == null) return NotFound();
+
+            return View(dichVu);
         }
 
         // GET: DichVu/Create
@@ -59,18 +71,8 @@ namespace HotelBooking.Controllers
 
             if (ModelState.IsValid)
             {
-                try
-                {
-                    _context.Update(dichVu);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!_context.DichVus.Any(e => e.MaDV == id))
-                        return NotFound();
-                    else
-                        throw;
-                }
+                _context.Update(dichVu);
+                await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
             return View(dichVu);
@@ -81,8 +83,7 @@ namespace HotelBooking.Controllers
         {
             if (id == null) return NotFound();
 
-            var dichVu = await _context.DichVus
-                .FirstOrDefaultAsync(m => m.MaDV == id);
+            var dichVu = await _context.DichVus.FirstOrDefaultAsync(m => m.MaDV == id);
             if (dichVu == null) return NotFound();
 
             return View(dichVu);

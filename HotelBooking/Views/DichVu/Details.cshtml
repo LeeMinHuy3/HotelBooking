@@ -1,0 +1,21 @@
+﻿@model HotelBooking.Models.DichVu
+
+<h2>Chi tiết dịch vụ</h2>
+
+<table class="table">
+    <tr>
+        <th>Mã DV</th>
+        <td>@Model.MaDV</td>
+    </tr>
+    <tr>
+        <th>Kiểu Dịch Vụ</th>
+        <td>@Model.KieuDichVu</td>
+    </tr>
+    <tr>
+        <th>Giá</th>
+        <td>@String.Format("{0:N0} VND", Model.Gia)</td>
+    </tr>
+</table>
+
+<a asp-action="Edit" asp-route-id="@Model.MaDV" class="btn btn-warning">Sửa</a>
+<a asp-action="Index" class="btn btn-secondary">Quay lại</a>
