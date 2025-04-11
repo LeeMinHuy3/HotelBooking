@@ -1,9 +1,18 @@
 ﻿@model HotelBooking.Models.DichVu
 
-<h2>Xác nhận xóa</h2>
-<p>Bạn có chắc muốn xóa dịch vụ "<strong>@Model.KieuDichVu</strong>" không?</p>
+@{
+    ViewData["Title"] = "Xóa Dịch vụ";
+}
 
-<form asp-action="Delete" asp-route-id="@Model.MaDV">
-    <button type="submit" class="btn btn-danger">Xóa</button>
-    <a asp-action="Index" class="btn btn-secondary">Hủy</a>
-</form>
+<h2 class="text-center text-danger">BẠN CÓ CHẮC MUỐN XÓA DỊCH VỤ NÀY?</h2>
+
+<div class="border p-3">
+    <h4>Kiểu dịch vụ: @Model.KieuDichVu</h4>
+    <h5>Giá: @Model.Gia.ToString("N0")</h5>
+
+    <form asp-action="DeleteConfirmed">
+        <input type="hidden" asp-for="MaDV" />
+        <button type="submit" class="btn btn-danger">Xóa</button>
+        <a asp-action="Index" class="btn btn-secondary">Hủy</a>
+    </form>
+</div>

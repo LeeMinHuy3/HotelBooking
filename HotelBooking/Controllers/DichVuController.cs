@@ -20,17 +20,6 @@ namespace HotelBooking.Controllers
             return View(dichVus);
         }
 
-        // GET: DichVu/Details/5
-        public async Task<IActionResult> Details(int? id)
-        {
-            if (id == null) return NotFound();
-
-            var dichVu = await _context.DichVus.FirstOrDefaultAsync(m => m.MaDV == id);
-            if (dichVu == null) return NotFound();
-
-            return View(dichVu);
-        }
-
         // GET: DichVu/Create
         public IActionResult Create()
         {
@@ -54,10 +43,12 @@ namespace HotelBooking.Controllers
         // GET: DichVu/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
             var dichVu = await _context.DichVus.FindAsync(id);
-            if (dichVu == null) return NotFound();
+            if (dichVu == null)
+                return NotFound();
 
             return View(dichVu);
         }
@@ -67,12 +58,23 @@ namespace HotelBooking.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("MaDV,KieuDichVu,Gia")] DichVu dichVu)
         {
-            if (id != dichVu.MaDV) return NotFound();
+            if (id != dichVu.MaDV)
+                return NotFound();
 
             if (ModelState.IsValid)
             {
-                _context.Update(dichVu);
-                await _context.SaveChangesAsync();
+                try
+                {
+                    _context.Update(dichVu);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!_context.DichVus.Any(e => e.MaDV == id))
+                        return NotFound();
+                    else
+                        throw;
+                }
                 return RedirectToAction(nameof(Index));
             }
             return View(dichVu);
@@ -81,10 +83,13 @@ namespace HotelBooking.Controllers
         // GET: DichVu/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null) return NotFound();
+            if (id == null)
+                return NotFound();
 
-            var dichVu = await _context.DichVus.FirstOrDefaultAsync(m => m.MaDV == id);
-            if (dichVu == null) return NotFound();
+            var dichVu = await _context.DichVus
+                .FirstOrDefaultAsync(m => m.MaDV == id);
+            if (dichVu == null)
+                return NotFound();
 
             return View(dichVu);
         }
