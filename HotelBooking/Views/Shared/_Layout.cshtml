@@ -48,8 +48,17 @@
                                 <li class="nav-item">
                                     <a class="nav-link" asp-controller="Contact" asp-action="Index">Liên hệ</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="#">Đăng nhập</a>
+                                <li class="nav-item dropdown">
+                                    <a class="nav-link dropdown-toggle btn btn-warning text-white px-3" href="#" id="loginDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        Đăng nhập
+                                    </a>
+                                    <ul class="dropdown-menu" aria-labelledby="loginDropdown">
+                                        <li><a class="dropdown-item" asp-controller="Account" asp-action="Login">Khách hàng</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Account" asp-action="Login" asp-route-role="Employee">Nhân viên</a></li>
+                                        <li><a class="dropdown-item" asp-controller="Account" asp-controller="Admin" asp-action="Index">Quản trị viên</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                        <li><a class="dropdown-item" asp-controller="Account" asp-action="Register">Đăng ký</a></li>
+                                    </ul>
                                 </li>
                             </ul>
                         </div>

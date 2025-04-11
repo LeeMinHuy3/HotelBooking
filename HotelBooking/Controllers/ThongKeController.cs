@@ -14,38 +14,29 @@ namespace HotelBooking.Controllers
             _context = context;
         }
 
-        public IActionResult Index()
-        {
-            var ngayHomNay = DateTime.Today;
+        //public async Task<IActionResult> Index(DateTime? ngay)
+        //{
+        //    var ngayThongKe = ngay ?? DateTime.Today;
 
-            // Tổng số lượt đặt phòng hôm nay
-            var soLuotDatPhong = _context.DatPhongs
-                .Count(dp => dp.ThoiGianDat.Date == ngayHomNay);
+        //    // Tính tổng doanh thu từ đặt phòng trong ngày
+        //    var tongDoanhThuDatPhong = await _context.DatPhongs
+        //        .Where(dp => dp.NgayDat.Date == ngayThongKe.Date)
+        //        .SumAsync(dp => (decimal?)dp.TongTien) ?? 0;
 
-            // Tổng số dịch vụ sử dụng hôm nay
-            var soDichVu = _context.DatDichVus
-                .Join(_context.DatPhongs,
-                      ddv => ddv.MaDP,
-                      dp => dp.MaDP,
-                      (ddv, dp) => new { ddv, dp })
-                .Count(x => x.dp.ThoiGianDat.Date == ngayHomNay);
+        //    // Tính tổng doanh thu từ dịch vụ
+        //    var tongDoanhThuDichVu = await _context.DatDichVus
+        //        .Where(dv => dv.NgaySuDung.Date == ngayThongKe.Date)
+        //        .SumAsync(dv => (decimal?)dv.ThanhTien) ?? 0;
 
-            // Số lần áp dụng khuyến mãi hôm nay
-            var soLanKhuyenMai = _context.DatPhongs
-                .Count(dp => dp.ThoiGianDat.Date == ngayHomNay && dp.MaKM != null);
+        //    var thongKe = new ThongKe
+        //    {
+        //        NgayThongKe = ngayThongKe,
+        //        TongDoanhThu = tongDoanhThuDatPhong + tongDoanhThuDichVu,
+        //        TongSoLuotDatPhong = await _context.DatPhongs.CountAsync(dp => dp.NgayDat.Date == ngayThongKe.Date),
+        //        TongSoDichVuSuDung = await _context.DatDichVus.CountAsync(dv => dv.NgaySuDung.Date == ngayThongKe.Date)
+        //    };
 
-            // Tổng doanh thu hôm nay (từ đặt phòng)
-            var doanhThu = _context.DatPhongs
-                .Where(dp => dp.ThoiGianDat.Date == ngayHomNay)
-                .Sum(dp => (decimal?)dp.TongTien) ?? 0;
-
-            // Gửi dữ liệu sang View bằng ViewBag
-            ViewBag.SoLuotDatPhong = soLuotDatPhong;
-            ViewBag.SoDichVu = soDichVu;
-            ViewBag.SoLanKhuyenMai = soLanKhuyenMai;
-            ViewBag.DoanhThu = doanhThu;
-
-            return View();
-        }
+        //    return View(thongKe);
+        //}
     }
 }

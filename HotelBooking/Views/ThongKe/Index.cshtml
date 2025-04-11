@@ -1,12 +1,30 @@
-﻿@{
-    ViewData["Title"] = "Thống kê trong ngày";
+﻿@model HotelBooking.Models.ThongKe
+
+@{
+    ViewData["Title"] = "Thống kê";
 }
 
-<h2>Thống kê hôm nay (@DateTime.Now.ToString("dd/MM/yyyy"))</h2>
+<h2 class="mt-3">Thống kê ngày: @Model.NgayThongKe.ToString("dd/MM/yyyy")</h2>
 
-<ul>
-    <li>Số lượt đặt phòng: <strong>@ViewBag.SoLuotDatPhong</strong></li>
-    <li>Số dịch vụ sử dụng: <strong>@ViewBag.SoDichVu</strong></li>
-    <li>Số lần áp dụng khuyến mãi: <strong>@ViewBag.SoLanKhuyenMai</strong></li>
-    <li>Tổng doanh thu: <strong>@ViewBag.DoanhThu.ToString("N0") VNĐ</strong></li>
-</ul>
+<form method="get" asp-action="Index">
+    <div class="form-group mb-3">
+        <label>Chọn ngày thống kê:</label>
+        <input type="date" name="ngay" class="form-control" value="@Model.NgayThongKe.ToString("yyyy-MM-dd")" />
+    </div>
+    <button type="submit" class="btn btn-primary">Xem thống kê</button>
+</form>
+
+<table class="table table-bordered mt-4">
+    <tr>
+        <th>Tổng doanh thu</th>
+        <td>@Model.TongDoanhThu.ToString("N0") VND</td>
+    </tr>
+    <tr>
+        <th>Tổng số lượt đặt phòng</th>
+        <td>@Model.TongSoLuotDatPhong</td>
+    </tr>
+    <tr>
+        <th>Tổng số dịch vụ sử dụng</th>
+        <td>@Model.TongSoDichVuSuDung</td>
+    </tr>
+</table>
