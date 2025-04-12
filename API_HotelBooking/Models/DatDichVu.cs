@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 
-namespace HotelBooking.Models
+namespace API_HotelBooking.Models
 {
     public class DatDichVu
     {

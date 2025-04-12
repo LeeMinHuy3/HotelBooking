@@ -1,9 +1,8 @@
-﻿using HotelBooking.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace HotelBooking.Models
+namespace API_HotelBooking.Models
 {
-    public class AppDbContext : DbContext
+    public class AppDbContext:DbContext
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options)
         {

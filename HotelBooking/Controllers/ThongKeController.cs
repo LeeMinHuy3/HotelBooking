@@ -1,18 +1,17 @@
 ﻿using HotelBooking.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using HotelBooking.Models;
 
 namespace HotelBooking.Controllers
 {
     public class ThongKeController : Controller
     {
-        private readonly AppDbContext _context;
+        //private readonly AppDbContext _context;
 
-        public ThongKeController(AppDbContext context)
-        {
-            _context = context;
-        }
+        //public ThongKeController(AppDbContext context)
+        //{
+        //    _context = context;
+        //}
 
         //public async Task<IActionResult> Index(DateTime? ngay)
         //{

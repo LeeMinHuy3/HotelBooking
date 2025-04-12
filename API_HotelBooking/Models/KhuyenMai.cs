@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace HotelBooking.Models
+namespace API_HotelBooking.Models
 {
     public class KhuyenMai
     {
